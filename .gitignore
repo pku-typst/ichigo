@@ -1,0 +1,9 @@
+debug*
+
+# Typst
+
+*.pdf
+
+# Mac OS
+
+.DS_Store
