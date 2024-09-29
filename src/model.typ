@@ -10,9 +10,21 @@
   author-names: z.either(z.tuple(), z.string()),
 ))
 
+#let font-schema = z.either(z.string(), z.tuple())
+
 #let theme-schema = z.dictionary((
   title: z.dictionary((
     whole-page: z.function(),
+    simple: z.function(),
+  )),
+  page-setting: z.dictionary((
+    header: z.function(),
+    footer: z.function(),
+  )),
+  fonts: z.dictionary((
+    heading: font-schema,
+    text: font-schema,
+    equation: font-schema,
   )),
 ))
 
