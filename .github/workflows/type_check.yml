@@ -4,10 +4,8 @@ jobs:
   build_typst:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-
-      - name: Build Typst files
-        uses: HackingGate/typst-out@v1
+      - uses: actions/checkout@v4
+      - uses: typst-community/setup-typst@v3
         with:
-          typst_ref: v0.11.1
+          cache-dependency-path: requirements.typ
+      - run: typst compile test.typ
