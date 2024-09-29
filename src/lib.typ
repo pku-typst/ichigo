@@ -83,6 +83,10 @@
     // Title
     title-content(meta, theme, title-style)
 
+    if title-style == "whole-page" {
+      counter(page).update(x => x - 1)
+    }
+
     doc
   }
 }
