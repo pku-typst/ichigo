@@ -1,0 +1,13 @@
+on: [push]
+
+jobs:
+  build_typst:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Build Typst files
+        uses: HackingGate/typst-out@v1
+        with:
+          typst_ref: v0.11.1
