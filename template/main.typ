@@ -1,4 +1,4 @@
-#import "@local/ichigo:0.1.0": config, prob
+#import "@preview/ichigo:0.1.0": config, prob
 
 #show: config.with(
   course-name: "Typst 使用小练习",
@@ -8,6 +8,7 @@
   ],
   author-names: "sjfhsjfh",
   title-style: "simple",
+  theme-name: "sketch",
   heading-numberings: ("1.", none, "(1)", "a."),
 )
 
