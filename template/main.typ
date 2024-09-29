@@ -1,5 +1,4 @@
-// #import "@local/ichigo:0.1.0": config
-#import "../export.typ": config, prob
+#import "@local/ichigo:0.1.0": config, prob
 
 #show: config.with(
   course-name: "Typst 使用小练习",

@@ -1,7 +1,3 @@
-#let export = (
-  title: (),
-)
-
 #let theme(meta) = {
   return (
     title: (
