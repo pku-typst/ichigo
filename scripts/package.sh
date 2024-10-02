@@ -12,6 +12,7 @@ files=(
   typst.toml
   LICENSE
   README.md
+  thumbnail.png
 )
 
 # Local package directories per platform
