@@ -1,0 +1,27 @@
+on:
+  push:
+    tags:
+      - 'v[0-9]*.[0-9]*.[0-9]*'
+      - 'v[0-9]*.[0-9]*.[0-9]*-**'
+
+jobs:
+  compile_doc:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: typst-community/setup-typst@v3
+        with:
+          cache-dependency-path: requirements.typ
+      - run: typst compile --font-path ./doc/fonts --root . ./doc/doc.typ ./documentation.pdf
+        name: Compile PDF
+      
+      - name: Create Release
+        id: create_release
+        uses: ncipollo/release-action@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          artifacts: "documentation.pdf"
+          draft: true

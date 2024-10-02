@@ -59,6 +59,8 @@
   })
 }
 
+#let ichigo-meta = toml("../typst.toml")
+
 // Layout
 
 #set text(lang: "zh")
@@ -90,7 +92,7 @@
 
 // Document
 
-#align(center)[#text(size: 24pt)[Ichigo 作业模板]]
+#align(center)[#text(size: 24pt)[Ichigo 作业模板v#ichigo-meta.package.version 文档]]
 
 #outline(depth: 2, indent: 1em)
 
