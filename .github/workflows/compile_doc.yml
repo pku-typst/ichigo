@@ -14,7 +14,7 @@ jobs:
       - uses: typst-community/setup-typst@v3
         with:
           cache-dependency-path: requirements.typ
-      - run: typst compile --font-path ./doc/fonts --root . ./doc/doc.typ ./doc.pdf
+      - run: typst compile --font-path ./doc/fonts --root . ./doc/doc.typ ./documentation.pdf
         name: Compile PDF
       
       - name: Create Release
