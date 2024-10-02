@@ -1,8 +1,8 @@
-# ichigo
+# ichigo - 苺
 
-作业模板 - Homework Template
+Homework Template - 作业模板
 
-## Usage 使用方法
+## Usage - 使用方法
 
 ```typ
 #import "@preview/ichigo:0.1.0": config, prob
@@ -29,13 +29,11 @@
 ]
 ```
 
-## Documentation 文档
+## Documentation - 文档
 
-TBD
+[Click to download - 点击下载](https://github.com/PKU-Typst/ichigo/releases/download/v0.1.0/documentation.pdf)
 
-## TODO 待办
+## TODO - 待办
 
-- [ ] Add documentation (for theme development)
-- [ ] Add manual (for users)
 - [ ] Theme list
 - [ ] Support custom(local) theme
