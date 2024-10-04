@@ -54,39 +54,44 @@
       },
       simple: () => {
         return align(
-          center + horizon,
-          stack(
-            dir: ltr,
-            spacing: 8pt,
-            image.decode(logo_str, width: 30%),
-            context line(
-              length: 20% * page.width,
-              angle: 90deg,
-              stroke: (
-                thickness: 0.8pt,
-                paint: gray.lighten(60%),
+          center,
+          block(
+            align(
+              horizon,
+              stack(
+                dir: ltr,
+                spacing: 8pt,
+                image.decode(logo_str, width: 30%),
+                context line(
+                  length: 20% * page.width,
+                  angle: 90deg,
+                  stroke: (
+                    thickness: 0.8pt,
+                    paint: gray.lighten(60%),
+                  ),
+                ),
+                align(left)[
+                  #block[
+                    #set text(font: (
+                      "New Computer Modern",
+                      "Source Han Serif SC",
+                    ))
+
+                    #text(size: 28pt, weight: "bold")[
+                      #meta.course-name
+                    ]
+
+                    #text(size: 18pt)[
+                      #meta.serial-str
+                    ]
+
+                    #text(size: 12pt, font: "STFangsong")[
+                      #meta.author-info
+                    ]
+                  ]
+                ],
               ),
             ),
-            align(left)[
-              #block[
-                #set text(font: (
-                  "New Computer Modern",
-                  "Source Han Serif SC",
-                ))
-
-                #text(size: 28pt, weight: "bold")[
-                  #meta.course-name
-                ]
-
-                #text(size: 18pt)[
-                  #meta.serial-str
-                ]
-
-                #text(size: 12pt, font: "STFangsong")[
-                  #meta.author-info
-                ]
-              ]
-            ],
           ),
         )
       },
