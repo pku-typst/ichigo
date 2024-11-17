@@ -47,6 +47,10 @@
   let theme = model.get-theme(theme-name)
   theme = z.parse(theme(meta), model.theme-schema, scope: (theme-name,))
 
+  if "custom-theme" in meta {
+    theme = z.parse(meta.custom-theme(meta), model.theme-schema, scope: ("custom-theme",))
+  }
+
   return {
     // Document metadata
     set document(
