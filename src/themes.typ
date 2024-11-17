@@ -3,6 +3,8 @@
   "sketch",
 )
 
+#metadata(THEMES) <THEMES>
+
 /// Get the theme main function by name
 ///
 /// - name (str): the name of the theme
