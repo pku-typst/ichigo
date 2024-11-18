@@ -5,7 +5,7 @@ Homework Template - 作业模板
 ## Usage - 使用方法
 
 ```typ
-#import "@preview/ichigo:0.1.0": config, prob
+#import "@preview/ichigo:0.2.0": config, prob
 
 #show: config.with(
   course-name: "Typst 使用小练习",
@@ -31,7 +31,7 @@ Homework Template - 作业模板
 
 ## Documentation - 文档
 
-[Click to download - 点击下载](https://github.com/PKU-Typst/ichigo/releases/download/v0.1.0/documentation.pdf)
+[Click to download - 点击下载](https://github.com/PKU-Typst/ichigo/releases/download/v0.2.0/documentation.pdf)
 
 ## TODO - 待办
 
