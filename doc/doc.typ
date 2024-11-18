@@ -207,6 +207,7 @@ ichigo 提供了一个功能库和一份文档模板, 对功能定制要求不�
   `serial-str`, `str`, [作业编号],
   `author-info`, `content`, [作者信息],
   `author-names`, `str | array`, [作者姓名(列表), 用于填入文档的 metadata],
+  `..opt`, `dictionary`, [其他参数, 可用于接受主题相关选项],
 )
 
 === `theme` <struct-theme>
@@ -224,16 +225,16 @@ ichigo 提供了一个功能库和一份文档模板, 对功能定制要求不�
 
 // @typstyle off
 #dict-struct(
-  `whole-page`, `function`, [整页模式],
-  `simple`, `function`, [简易模式],
+  `whole-page`, `content`, [整页模式],
+  `simple`, `content`, [简易模式],
 )
 
 `page-setting` 字段包含以下字段:
 
 // @typstyle off
 #dict-struct(
-  `header`, `function`, [页眉],
-  `footer`, `function`, [页脚],
+  `header`, `content`, [页眉],
+  `footer`, `content`, [页脚],
 )
 
 `fonts` 字段包含以下字段:
