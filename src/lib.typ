@@ -21,6 +21,8 @@
 /// - author-names (array | str): the array of author names, default to `""`
 /// - heading-numberings (array): the heading numbering format, default to `(none, none, "(1)", "a.")`
 /// - title-style (str | none): expected to be `"whole-page"`, `none` or `"simple"`, default to `"whole-page"`
+/// - theme-name (str): the name of the theme, default to `"simple"`
+/// - custom-theme (any): the custom theme function, default to `none`
 /// - opt (arguments): other options, including theme-specific options
 /// -> doc
 #let config(
@@ -32,6 +34,7 @@
   heading-numberings: (none, none, "({3:1})", "{4:a}."),
   title-style: "whole-page",
   theme-name: "simple",
+  custom-theme: none,
   ..opt,
 ) = {
   let meta = (
@@ -48,8 +51,8 @@
 
   let theme = model.get-theme(theme-name)
   theme = z.parse(theme(meta), model.theme-schema, scope: (theme-name,))
-  if "custom-theme" in meta {
-    theme = z.parse(meta.custom-theme(meta), model.theme-schema, scope: ("custom-theme",))
+  if custom-theme != none {
+    theme = z.parse(custom-theme(meta), model.theme-schema, scope: ("custom-theme",))
   }
 
   let num-func = if type(heading-numberings) == array {

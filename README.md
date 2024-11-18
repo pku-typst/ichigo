@@ -37,4 +37,3 @@ Homework Template - 作业模板
 
 - [ ] Equation Numbering
 - [ ] Theme list & documentation
-- [ ] Support custom(local) theme (documentation)

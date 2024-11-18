@@ -186,7 +186,7 @@ ichigo 提供了一个功能库和一份文档模板, 对功能定制要求不�
 
 == 主题开发
 
-新建主题需要在 `/src/themes/{theme_name}/lib.typ` 文件中包含一个名为 `theme` 的函数, 其中 `{theme_name}` 为主题名称.
+新建主题需要在 `/src/themes/{theme_name}/lib.typ` 文件中包含一个名为 `theme` 的函数, 其中 `{theme_name}` 为主题名称. 也可单独创建模板并将 `theme` 函数传入 `custom-theme` 参数中.
 
 对 `theme` 函数的要求为:
 
