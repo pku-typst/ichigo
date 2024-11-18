@@ -49,8 +49,8 @@
       },
     ),
     page-setting: (
-      header: () => none,
-      footer: () => {
+      header: meta => none,
+      footer: meta => {
         let cur = context counter(page).get().at(0)
         let tot = context counter(page).final().at(0)
         return align(center)[

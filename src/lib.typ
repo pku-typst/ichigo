@@ -19,8 +19,9 @@
 /// - serial-str (str): the serial number of the document, must be provided
 /// - author-info (content): the author information, default to `[]`
 /// - author-names (array | str): the array of author names, default to `""`
-///
+/// - heading-numberings (array): the heading numbering format, default to `(none, none, "(1)", "a.")`
 /// - title-style (str | none): expected to be `"whole-page"`, `none` or `"simple"`, default to `"whole-page"`
+/// - opt (arguments): other options, including theme-specific options
 /// -> doc
 #let config(
   doc,
@@ -28,7 +29,7 @@
   serial-str: none,
   author-info: [],
   author-names: "",
-  heading-numberings: (none, none, "(1)", "a."),
+  heading-numberings: (none, none, "({3:1})", "{4:a}."),
   title-style: "whole-page",
   theme-name: "simple",
   ..opt,
@@ -40,15 +41,23 @@
     author-names: author-names,
     ..opt.named(),
   )
+
   title-style = z.parse(title-style, model.title-style)
-  meta = z.parse(meta, model.meta-schema)
+  meta = opt.named() + z.parse(meta, model.meta-schema)
   z.parse(theme-name, model.theme-name)
 
   let theme = model.get-theme(theme-name)
   theme = z.parse(theme(meta), model.theme-schema, scope: (theme-name,))
-
   if "custom-theme" in meta {
     theme = z.parse(meta.custom-theme(meta), model.theme-schema, scope: ("custom-theme",))
+  }
+
+  let num-func = if type(heading-numberings) == array {
+    numbly(..heading-numberings)
+  } else if type(heading-numberings) == function {
+    heading-numberings
+  } else {
+    assert(false, "Invalid heading numbering type")
   }
 
   return {
@@ -58,25 +67,13 @@
       author: meta.author-names,
     )
 
-    // heading numbering
-    set heading(numbering: (..n) => {
-      let (..n) = n.pos()
-      let numb = heading-numberings.at(
-        n.len() - 1,
-        default: heading-numberings.last(),
-      )
-      numb = if numb != none {
-        numbering(numb, n.last())
-      } else {
-        none
-      }
-      return numb
-    })
+    // Heading numbering
+    set heading(numbering: num-func)
 
     // Page header & footer
     set page(
-      header: (theme.page-setting.header)(),
-      footer: (theme.page-setting.footer)(),
+      header: theme.page-setting.header,
+      footer: theme.page-setting.footer,
     )
 
     // Fonts

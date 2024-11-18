@@ -100,7 +100,7 @@
   place(line(length: 100%, stroke: 0.5pt), dy: 0.5em)
 }
 
-#let footer = () => {
+#let footer = meta => {
   let cur = context counter(page).get().at(0)
   let tot = context counter(page).final().at(0)
   return align(center)[
@@ -117,22 +117,18 @@
   }
   return (
     title: (
-      whole-page: () => {
-        return {
-          whole-page-title(meta, logo)
-          pagebreak(weak: true)
-        }
+      whole-page: {
+        whole-page-title(meta, logo)
+        pagebreak(weak: true)
       },
-      simple: () => {
-        return {
-          set align(center)
-          block(simple-title(meta, logo))
-        }
+      simple: {
+        set align(center)
+        block(simple-title(meta, logo))
       },
     ),
     page-setting: (
-      header: () => header(meta),
-      footer: footer,
+      header: header(meta),
+      footer: footer(meta),
     ),
     fonts: (
       heading: (

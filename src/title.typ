@@ -14,9 +14,9 @@
 ) = {
   z.parse(title-style, z.string())
   if title-style == "whole-page" {
-    return (theme.title.whole-page)()
+    return theme.title.whole-page
   } else if title-style == "simple" {
-    return (theme.title.simple)()
+    return theme.title.simple
   } else if title-style == "none" {
     return []
   }

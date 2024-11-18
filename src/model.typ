@@ -14,12 +14,12 @@
 
 #let theme-schema = z.dictionary((
   title: z.dictionary((
-    whole-page: z.function(),
-    simple: z.function(),
+    whole-page: z.content(),
+    simple: z.content(),
   )),
   page-setting: z.dictionary((
-    header: z.function(),
-    footer: z.function(),
+    header: z.content(),
+    footer: z.content(),
   )),
   fonts: z.dictionary((
     heading: font-schema,
