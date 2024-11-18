@@ -91,7 +91,7 @@
       counter(page).update(x => x - 1)
     }
 
-    doc
+    (theme.styles)(doc)
   }
 }
 

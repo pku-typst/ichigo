@@ -35,5 +35,4 @@ Homework Template - 作业模板
 
 ## TODO - 待办
 
-- [ ] Equation Numbering
 - [ ] Theme list & documentation

@@ -172,7 +172,7 @@ ichigo 提供了一个功能库和一份文档模板, 对功能定制要求不�
 
 = 主题开发 <theme-dev>
 
-== 现有可用主题
+== 现有内置主题
 
 #import "../src/themes.typ": THEMES
 #figure(
@@ -181,7 +181,7 @@ ichigo 提供了一个功能库和一份文档模板, 对功能定制要求不�
     table.header([主题名称], [预览图]),
     ..THEMES.map(t => (t, [暂无])).flatten()
   ),
-  caption: [可用主题],
+  caption: [内置主题],
 ) <available-themes>
 
 == 主题开发
@@ -219,6 +219,7 @@ ichigo 提供了一个功能库和一份文档模板, 对功能定制要求不�
   `title`, `dictionary`, [标题样式],
   `page-setting`, `dictionary`, [页面设置],
   `fonts`, `dictionary`, [字体设置],
+  `styles`, `(doc) => result`, [样式设置，可选，不设置则为无附加样式],
 )
 
 其中 `title` 字段包含以下字段:

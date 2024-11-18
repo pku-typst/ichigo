@@ -13,6 +13,7 @@
 #let font-schema = z.either(z.string(), z.tuple())
 
 #let theme-schema = z.dictionary((
+  styles: z.function(optional: true, default: it => it),
   title: z.dictionary((
     whole-page: z.content(),
     simple: z.content(),
